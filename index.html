@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f766e">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <title>Vending Buddy Web</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Vending Buddy Web</h1>
+    <button id="installBtn" hidden>Install</button>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="stops">Stops</button>
+    <button class="tab" data-tab="inventory">Inventory</button>
+    <button class="tab" data-tab="settings">Settings</button>
+  </nav>
+
+  <main>
+    <!-- Stops -->
+    <section id="stops" class="panel active">
+      <ul id="stopList" class="list"></ul>
+      <form id="stopForm" autocomplete="off" class="form-row">
+        <input id="stopName" placeholder="Stop name" required>
+        <input id="stopAddr" placeholder="Address or note">
+        <button type="submit">Add Stop</button>
+      </form>
+      <div class="toolbar">
+        <button id="resetStops">Reset Checks</button>
+        <button id="exportStops">Export Stops (JSON)</button>
+        <input type="file" id="importStops" accept="application/json" hidden>
+        <button id="importStopsBtn">Import Stops</button>
+      </div>
+    </section>
+
+    <!-- Inventory -->
+    <section id="inventory" class="panel">
+      <ul id="invList" class="list"></ul>
+      <form id="invForm" autocomplete="off" class="form-grid">
+        <input id="sku" placeholder="SKU" required>
+        <input id="name" placeholder="Item name" required>
+        <input id="count" type="number" inputmode="numeric" placeholder="Count" value="0" required>
+        <button type="submit">Add Item</button>
+      </form>
+      <div class="toolbar">
+        <button id="exportInv">Export Inventory (JSON)</button>
+        <input type="file" id="importInv" accept="application/json" hidden>
+        <button id="importInvBtn">Import Inventory</button>
+      </div>
+    </section>
+
+    <!-- Settings -->
+    <section id="settings" class="panel">
+      <h2>About</h2>
+      <p>Offline-capable checklist + quick counts. Data is stored in your browser on this device.</p>
+      <details>
+        <summary>Tips</summary>
+        <ul>
+          <li>Click the checkbox to mark a stop complete.</li>
+          <li>Use + and − to adjust counts. Click the number to edit.</li>
+          <li>Use Export/Import to move data between devices.</li>
+        </ul>
+      </details>
+      <p class="small">Version 0.1.0</p>
+    </section>
+  </main>
+
+  <footer>
+    <span>Vending Buddy Web</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
